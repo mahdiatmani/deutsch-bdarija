@@ -1,0 +1,309 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL") // Only needed when running migrations against Supabase
+}
+
+model User {
+  id               String   @id @default(uuid())
+  username         String   @unique
+  email            String   @unique
+  password         String
+  firstName        String?
+  lastName         String?
+  gender           String?  // "male" or "female"
+  appLanguage      String   @default("darija") // "darija" (default), "en", "fr"
+  role             String   @default("user") // "admin" or "user"
+  avatar           String?
+  totalPoints      Int      @default(0)
+  currentLevel     Int      @default(1)
+  currentStreak    Int      @default(0)
+  longestStreak    Int      @default(0)
+  lessonsCompleted Int      @default(0)
+  dailyGoal        Int      @default(50)
+  dailyXP          Int      @default(0)
+  lastDailyActivity DateTime @default(now())
+  lastStreakDate   DateTime? // Last day the user earned XP (drives the streak)
+  emailNotifications Boolean @default(true)
+  dailyReminders   Boolean  @default(true)
+  tokenVersion     Int      @default(0) // Raised on password change/reset: older login tokens stop working
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  passwordResetTokens PasswordResetToken[]
+  progress         CourseProgress[]
+  achievements     Achievement[]
+  badges           UserBadge[]
+  messages         RoomMessage[]
+  aiConversations  AIConversation[]
+  aiMessages       AIMessage[]
+  chatSettings     UserChatSettings?
+  generatedTests   GeneratedTest[]
+  gameScores       GameScore[]
+  gameWords        GameWord[]
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  userId    String
+  tokenHash String    @unique // sha256 of the token sent to the user
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Course {
+  id             String   @id
+  title          String
+  description    String
+  level          String
+  totalLessons   Int
+  estimatedHours Int
+  icon           String
+  color          String
+  isPublished    Boolean  @default(true)
+  isLocked       Boolean  @default(false)
+  order          Int
+  objectives     String   @default("[]") // JSON array of can-do statements
+
+  lessons        Lesson[]
+  progress       CourseProgress[]
+}
+
+model Lesson {
+  id          String   @id @default(uuid())
+  courseId    String
+  title       String
+  description String
+  type        String   @default("standard") // standard, quiz, game
+  order       Int
+  content     String   // JSON string content for flexibility
+  duration    Int      // Minutes
+  
+  course      Course   @relation(fields: [courseId], references: [id])
+  progress    LessonProgress[]
+}
+
+model LessonProgress {
+  id          String   @id @default(uuid())
+  userId      String
+  lessonId    String
+  status      String   @default("not_started") // not_started, in_progress, completed
+  score       Int      @default(0)
+  lastPlayed  DateTime @default(now())
+  
+  lesson      Lesson   @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+}
+
+model CourseProgress {
+  id               String   @id @default(uuid())
+  userId           String
+  courseId         String
+  completedLessons Int      @default(0)
+  progress         Int      @default(0) // Percentage
+  totalPoints      Int      @default(0)
+  lastAccessed     DateTime @default(now())
+  
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+}
+
+model Badge {
+  id          String   @id
+  name        String
+  description String
+  icon        String
+  category    String   // achievement, streak, learning
+  
+  users       UserBadge[]
+}
+
+model UserBadge {
+  id        String   @id @default(uuid())
+  userId    String
+  badgeId   String
+  earnedAt  DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id])
+  badge     Badge    @relation(fields: [badgeId], references: [id])
+
+  @@unique([userId, badgeId])
+}
+
+model Achievement {
+  id          String   @id @default(uuid())
+  userId      String
+  type        String   // lesson-complete, course-complete, streak, level-up, perfect-score
+  title       String
+  description String
+  points      Int
+  value       Int?     // Type-specific number (level reached, streak length, ...)
+  timestamp   DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id])
+}
+
+model ChatRoom {
+  id          String        @id @default(uuid())
+  name        String
+  description String?
+  messages    RoomMessage[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model RoomMessage {
+  id        String   @id @default(uuid())
+  content   String
+  userId    String
+  roomId    String
+  createdAt DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id])
+  room      ChatRoom @relation(fields: [roomId], references: [id])
+}
+
+// One finished round of a learning game (games are defined in src/data/games.ts)
+model GameScore {
+  id        String   @id @default(uuid())
+  userId    String
+  gameId    String
+  score     Int
+  correct   Int
+  total     Int
+  bestCombo Int      @default(0)
+  xp        Int      @default(0)
+  isDaily   Boolean  @default(false) // counted as the daily challenge
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, gameId])
+  @@index([gameId, createdAt])
+  @@index([userId, createdAt])
+}
+
+// Spaced repetition of the words a learner meets in games (Leitner boxes)
+model GameWord {
+  userId    String
+  word      String   // German text as in the lesson vocabulary, e.g. "der Tisch"
+  box       Int      @default(0) // 0 = review now, higher boxes come back after longer intervals
+  correct   Int      @default(0)
+  wrong     Int      @default(0)
+  dueAt     DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, word])
+  @@index([userId, dueAt])
+}
+
+// AI Teacher Chat Models
+model AIConversation {
+  id          String      @id @default(uuid())
+  userId      String
+  title       String?     // Auto-generated from first message
+  isActive    Boolean     @default(true)
+  messageCount Int        @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages    AIMessage[]
+
+  @@index([userId, isActive])
+  @@index([userId, updatedAt])
+}
+
+model AIMessage {
+  id              String    @id @default(uuid())
+  conversationId  String
+  userId          String
+  role            String    // "user" or "assistant"
+  content         String
+  germanText      String?   // Extracted German text for TTS
+  metadata        String?   // JSON string for additional data
+  createdAt       DateTime  @default(now())
+
+  conversation    AIConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  feedback        AIMessageFeedback?
+
+  @@index([conversationId, createdAt])
+  @@index([userId, createdAt])
+}
+
+model AIMessageFeedback {
+  id        String   @id @default(uuid())
+  messageId String   @unique
+  rating    Int      // 1-5 stars
+  feedback  String?  // Optional text feedback
+  createdAt DateTime @default(now())
+
+  message   AIMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+}
+
+model UserChatSettings {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  autoSpeak       Boolean  @default(true)
+  speechRate      Float    @default(0.85)
+  dailyMessageLimit Int    @default(100)
+  messagesUsedToday Int    @default(0)
+  lastResetDate   DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model GeneratedTest {
+  id          String    @id @default(uuid())
+  userId      String
+  subject     String
+  level       String    // A1, A2, B1, B2
+  exercises   String    // JSON array of exercises
+  score       Int?      // null until completed
+  totalPoints Int       @default(0)
+  status      String    @default("in_progress") // in_progress, completed
+  createdAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+// Lesson speech (neural voices), generated once by scripts/generate-lesson-audio.ts
+model LessonAudio {
+  id        String   @id // sha256 of voice|rate|text, see src/lib/lesson-audio.ts
+  voice     String
+  rate      Float
+  text      String
+  audio     Bytes    // audio/mpeg
+  createdAt DateTime @default(now())
+}
+
+model RateLimitLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  ip        String
+  endpoint  String
+  count     Int      @default(1)
+  windowStart DateTime @default(now())
+
+  @@index([userId, endpoint, windowStart])
+  @@index([ip, endpoint, windowStart])
+}

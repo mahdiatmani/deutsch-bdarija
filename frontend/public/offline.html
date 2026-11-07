@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ary">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0D1015" />
+    <title>Offline · Deutsch B'Darija</title>
+    <link rel="icon" href="/favicon.svg" />
+    <style>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        background: #f5f6f8;
+        color: #0d1015;
+      }
+      main { max-width: 420px; text-align: center; }
+      img { width: 72px; height: 72px; margin-bottom: 20px; }
+      h1 { margin: 0 0 8px; font-size: 26px; line-height: 1.2; }
+      p { margin: 0 0 6px; color: #4b5563; line-height: 1.5; }
+      .alt { font-size: 14px; color: #6b7280; }
+      button {
+        margin-top: 24px;
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 24px;
+        font: inherit;
+        font-weight: 700;
+        background: #00a36c;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover { background: #008a5b; }
+      @media (prefers-color-scheme: dark) {
+        body { background: #0b0d11; color: #f3f4f6; }
+        p { color: #9ca3af; }
+        .alt { color: #6b7280; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="/favicon.svg" alt="" />
+      <h1>Ma kaynach l-connexion</h1>
+      <p>Had s-safha ma t7fdatch 3la t-telephone. Rje3 l l-internet o 3awed.</p>
+      <p class="alt">You're offline and this page wasn't saved yet. · Vous êtes hors ligne et cette page n'a pas encore été enregistrée.</p>
+      <button type="button" onclick="location.reload()">3awed · Retry</button>
+    </main>
+    <script>
+      // Come back by itself as soon as the connection returns
+      addEventListener('online', () => location.reload())
+    </script>
+  </body>
+</html>

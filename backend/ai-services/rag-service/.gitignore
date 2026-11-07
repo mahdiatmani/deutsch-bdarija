@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+data/pdfs/*.pdf
+data/chroma_db/
+data/scraped/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/

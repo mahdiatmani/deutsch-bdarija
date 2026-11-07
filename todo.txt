@@ -1,0 +1,31 @@
+Done :
+1. Production readiness overhaul (modular backend, security, Docker)
+2. Framer Motion animations across all pages
+3. Section-based test generation (reading, listening, grammar, writing, speaking)
+4. Test taking page with review mode
+5. Lesson cards restyling with progress bar
+6. CEFR level badge in sidebar
+7. XP consistency across all tabs (formatXP utility + auth store refresh)
+8. Signup page: gender above password, confirm password, password criteria
+
+9. Translations for all 3 languages across all pages
+10. Language consistency fix (persist selected language through signup/login)
+11. Login page improvements (show/hide password, working remember me, ?redirect=, translated errors)
+12. Forgot / reset password flow (email via Resend, or console link in dev)
+13. Profile page editing (inline name edit, avatar upload, real level progress, real stats)
+14. Settings page functionality (daily goal, notifications, theme, AI voice, change password)
+15. Streak, level, daily XP and achievements now actually update (lib/progression.ts)
+16. Lessons save progress (completion screen used to skip the save) + matching exercises
+17. Security: no password hash in API responses, XP farming fixed, login rate limiting, socket hardening
+18. Learning games, Today page, spaced repetition of words (Leitner boxes)
+19. Unit tests (Vitest) for progression, word review and sessions + GitHub Actions CI
+20. Password change/reset signs out all other devices (User.tokenVersion)
+21. Spaced review at the center of Today: review first, word stages card, sidebar badge, notification
+22. Installable PWA: manifest, app icons, service worker with offline pages, lessons and audio
+
+In progress :
+Not yet :
+1. Course creation admin panel
+2. Real audio for listening exercises
+3. Email delivery for notifications (preference is stored, nothing is sent yet)
+4. Social login (Google/GitHub buttons were removed until OAuth is set up)

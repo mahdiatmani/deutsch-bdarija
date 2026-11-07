@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deutsch B’Darija</title>
+<!-- Google Fonts: Lexend -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06a75f",
+                        "primary-dark": "#047844",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221a",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c2e26",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for a more app-like feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #334155;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-white font-display antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16 md:h-20">
+<!-- Logo Area -->
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">translate</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white hidden sm:block">
+                        Deutsch B’Darija
+                    </h1>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold text-primary" href="#">Home</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Lessons</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Tests</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Games</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">AI Teacher</a>
+</nav>
+<!-- Auth Buttons -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex h-10 px-5 items-center justify-center rounded-xl bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors">
+                        Log In
+                    </button>
+<button class="flex h-10 px-5 items-center justify-center rounded-xl bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary-dark transition-colors">
+                        Sign Up
+                    </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden flex items-center justify-center size-10 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Router Outlet / Page Content -->
+<main class="flex-grow flex flex-col">
+<!-- Hero Section (Home Page) -->
+<section class="relative w-full overflow-hidden">
+<div class="absolute inset-0 z-0">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark/90 to-background-dark/40 z-10"></div>
+<img alt="Brandenburg Gate in Berlin Germany with warm sunset light" class="w-full h-full object-cover object-center" data-alt="Brandenburg Gate in Berlin Germany with warm sunset light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIC63t808G_6heJ1ExsfR3MBuxb2mm3F4A4ol_rjMUTlrcTAdyePuF5c90Ti7ZhaH2Ysc0lcP8VpvHx6VTM5cacZ3wXP0PAe9qRx325dBHMaGE261A2PB_dgrlyaRJaBSI-uGs4NRmF16jLzi8AEMKpjZwHNnxxtv2e90hM-l4y7Y6OGr_2eWfjxerRM2e1ESOPF-a6Ri6rmOg2AH7csrk90g4OuqssEsxL8KSU_x08q_OmT7hTxXhpamDt81RLV6vpV28BpWjPUM"/>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+<div class="max-w-2xl flex flex-col gap-6">
+<div class="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                        New: AI Pronunciation Coach
+                    </div>
+<h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tight">
+                        Learn German in <br/>
+<span class="text-primary">Moroccan Darija</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-200 font-normal leading-relaxed max-w-lg">
+                        Master the language with AI tutors, interactive courses, and fun games designed specifically for Darija speakers.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="h-12 px-8 rounded-xl bg-primary text-white text-base font-bold shadow-lg shadow-primary/30 hover:bg-primary-dark hover:scale-105 transition-all duration-200 flex items-center gap-2">
+<span class="material-symbols-outlined">rocket_launch</span>
+                            Start Learning Free
+                        </button>
+<button class="h-12 px-8 rounded-xl bg-white text-gray-900 text-base font-bold hover:bg-gray-50 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">quiz</span>
+                            Take Placement Test
+                        </button>
+</div>
+<div class="flex items-center gap-4 pt-4 text-white/60 text-sm">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full bg-gray-400 border-2 border-background-dark overflow-hidden">
+<img alt="User avatar woman" class="w-full h-full object-cover" data-alt="User avatar woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm59bujaPYcqyket6NpZWo1B0FZG6sKWm4CzjeTWs_TWczeezIIfkQF4l_kjqf6XzroYLw1usGlVuUCsQGZoLM4woxuTk0BZKe8KuZ_tkRb5y1SQqsX2RdWSvC3tQ--CGeK4OdQdiPnlLmGcxy4m9h50ImsJEsholTnnBekz51ahoo2TUCWbky6lgma97CuwmdLbm2y5aS8dLolEl49PkxGa5cgMbr-mhMNBiWqNWN1n4vKuh4i_VHda9qa6gu6d_CbrpvDFoOiww"/>
+</div>
+<div class="size-8 rounded-full bg-gray-400 border-2 border-background-dark overflow-hidden">
+<img alt="User avatar man" class="w-full h-full object-cover" data-alt="User avatar man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6VCEQlEbwhvkPIn_dJUrz02ycUOw-gWe-QTcf5U1NCICaz3COLIphq7dNoyL9B_PmpBYYxwBBr6OirSTwLk5bjRGJPNxKiQDxjGK7s_bp3NbW-GVBjBKq9FZDl6SNz7ZqHhMBK7EKKiRwvkx0ePewlSO6vRESEPeJTvzLhKdnB8oK7ynpm_mbcobZp-Gb1okAnLZ0vz6L9JbXLhhOPe-qbF9iIxGgdkad9Vpor1OBBJQ4p1DfP5zpj--uA4OzSCSROfKUO5zqnK8"/>
+</div>
+<div class="size-8 rounded-full bg-gray-400 border-2 border-background-dark overflow-hidden">
+<img alt="User avatar man smiling" class="w-full h-full object-cover" data-alt="User avatar man smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApBRRTXAnk4q30FxnnzHD1nQeGS_Di0VrTFcbS4AGuBx0lDjyE36n1tPLMQ9VCvRuEG--4k5vOJDY34WlHsB-mfDb3AuD8VvGAhb7eP4GmiaUWLxX6SfJfl8ZWNq_TJHL5xNacYU9xLFiYKAxmq0abK6yLaAnI7GymvEz4hKLfZwwSUi2EyjhRQDrGi-qeMPVwVMAKFuH6AgXtS4vxb3tNTfs1oZpaUTySX2kOckGw6yt2EWmtfRL8cxVtQ7lmhHnjGnVQ7E_hISQ"/>
+</div>
+</div>
+<p>Join 10,000+ Moroccan learners</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Course Preview Section (App-like feel) -->
+<section class="py-16 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white">Start Your Journey</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Level A1 - Basics</p>
+</div>
+<a class="text-primary font-semibold text-sm hover:underline" href="#">View all lessons</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Lesson Card 1 -->
+<div class="group relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="h-32 bg-primary/10 relative overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center text-primary/20 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-8xl">waving_hand</span>
+</div>
+<div class="absolute top-4 right-4 bg-white dark:bg-black/50 backdrop-blur rounded-lg px-2 py-1 text-xs font-bold text-gray-900 dark:text-white">
+                                5 min
+                            </div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Greetings &amp; Intros</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Learn to say Hello, Goodbye and introduce yourself in German.</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full" style="width: 0%"></div>
+</div>
+<button class="w-full py-2 rounded-lg bg-primary/10 text-primary text-sm font-bold group-hover:bg-primary group-hover:text-white transition-colors">Start Lesson</button>
+</div>
+</div>
+<!-- Lesson Card 2 -->
+<div class="group relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="h-32 bg-orange-500/10 relative overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center text-orange-500/20 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-8xl">restaurant</span>
+</div>
+<div class="absolute top-4 right-4 bg-white dark:bg-black/50 backdrop-blur rounded-lg px-2 py-1 text-xs font-bold text-gray-900 dark:text-white">
+                                8 min
+                            </div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Food &amp; Dining</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Ordering food, naming vegetables, and understanding menus.</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full" style="width: 0%"></div>
+</div>
+<button class="w-full py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white text-sm font-bold group-hover:bg-primary group-hover:text-white transition-colors">Start Lesson</button>
+</div>
+</div>
+<!-- Lesson Card 3 -->
+<div class="group relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="h-32 bg-blue-500/10 relative overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center text-blue-500/20 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-8xl">directions_bus</span>
+</div>
+<div class="absolute top-4 right-4 bg-white dark:bg-black/50 backdrop-blur rounded-lg px-2 py-1 text-xs font-bold text-gray-900 dark:text-white">
+                                10 min
+                            </div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Travel Basics</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Asking for directions, buying tickets, and navigating the city.</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full" style="width: 0%"></div>
+</div>
+<button class="w-full py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white text-sm font-bold group-hover:bg-primary group-hover:text-white transition-colors">Start Lesson</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-20 bg-surface-light dark:bg-surface-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-1/2 flex flex-col gap-6">
+<div class="inline-flex w-fit items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                            Why Choose Us
+                        </div>
+<h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white leading-tight">
+                            Smart learning built for <br/>
+                            Moroccan students
+                        </h2>
+<p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+                            We combine modern AI technology with culturally relevant teaching methods to bridge the gap between Darija and German.
+                        </p>
+<div class="grid gap-6 mt-4">
+<!-- Feature Item -->
+<div class="flex gap-4">
+<div class="flex-shrink-0 size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">AI Teacher</h3>
+<p class="text-gray-500 dark:text-gray-400">Chat naturally with an AI that understands both German and Darija nuances.</p>
+</div>
+</div>
+<!-- Feature Item -->
+<div class="flex gap-4">
+<div class="flex-shrink-0 size-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined">sports_esports</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Gamified Learning</h3>
+<p class="text-gray-500 dark:text-gray-400">Earn points, unlock badges, and compete on leaderboards while learning.</p>
+</div>
+</div>
+<!-- Feature Item -->
+<div class="flex gap-4">
+<div class="flex-shrink-0 size-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Structured Courses</h3>
+<p class="text-gray-500 dark:text-gray-400">Follow a clear path from A1 to B2 with certification preparation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative">
+<div class="absolute -inset-4 bg-gradient-to-r from-primary to-blue-500 rounded-3xl blur-2xl opacity-20"></div>
+<div class="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-2xl">
+<img alt="Students working together on a project with laptops" class="w-full h-auto object-cover" data-alt="Students working together on a project with laptops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuipUucHCsCnKc8jLCC-4LPrNHKT_spxahVnBYdBmlSeSs41J3GZEdTAxRNkB8xZpv6gyLq9tWcPqjNK4yXy9M7GN8dR18622lfAJZHK_ogwRfrcfN3GN0LoEosBsZd124Rng3brBBwOHMjnJmUvbEWpDRAMVQtQyTjifJuhW8Enw6d0CWkBbFxqKEbmC9gETVw08USBNYnF4jJVrW8Fd4cHuVX7v9Fm9vzAKBCnYA-liaZ6UWN-bvWTQsUqmVVzwu57uK26D6nc"/>
+<div class="absolute bottom-6 left-6 right-6 p-4 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-xl border border-white/20">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-yellow-500">stars</span>
+<span class="font-bold text-sm text-gray-900 dark:text-white">Daily Streak: 12 Days!</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">translate</span>
+<span class="font-bold text-lg">Deutsch B’Darija</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        Making German accessible for everyone in Morocco. Learn fast, speak confidently.
+                    </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-gray-900 dark:text-white">Platform</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Courses</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">AI Tutor</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Placement Test</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Pricing</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-gray-900 dark:text-white">Resources</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Blog</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Community</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Help Center</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-gray-900 dark:text-white">Legal</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-gray-200 dark:border-gray-800 gap-4">
+<p class="text-gray-500 dark:text-gray-400 text-sm text-center md:text-left">
+                    © 2023 Deutsch B’Darija. All rights reserved.
+                </p>
+<div class="flex items-center gap-4">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

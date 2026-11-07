@@ -1,0 +1,15 @@
+# Core
+streamlit>=1.38.0
+
+# PDF Processing
+PyMuPDF>=1.24.0
+
+# Embeddings & Vector Store
+sentence-transformers>=3.0.0
+chromadb>=0.5.0
+
+# Atlas-Chat-9B (4-bit quantized)
+torch>=2.1.0
+transformers>=4.40.0
+accelerate>=0.30.0
+bitsandbytes>=0.43.0

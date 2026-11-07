@@ -1,0 +1,22 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+chromadb==0.5.23
+sentence-transformers==3.3.1
+FlagEmbedding==1.2.11
+requests==2.32.3
+beautifulsoup4==4.12.3
+fpdf2==2.8.2
+pydantic==2.10.4
+pydantic-settings==2.7.1
+httpx==0.28.1
+pdfplumber==0.11.4
+PyPDF2==3.0.1
+lxml==5.3.0
+numpy>=1.26.0
+huggingface-hub>=0.24.0
+
+# Atlas-Chat-9B local inference (4-bit quantized)
+transformers>=4.40.0
+accelerate>=0.30.0
+bitsandbytes>=0.43.0
+torch>=2.1.0
