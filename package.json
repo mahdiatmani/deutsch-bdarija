@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "AI-powered learning platform for teaching German to Moroccan students in Darija",
+  "license": "MIT",
   "scripts": {
     "dev": "pnpm --parallel -r dev",
     "build": "pnpm -r build",

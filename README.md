@@ -184,4 +184,6 @@ Change the model in the sidebar dropdown, or set the default in `rag_core/rag_ch
 
 ## License
 
-This project is for educational purposes. The PDF content is subject to its own copyright.
+The code is released under the [MIT License](LICENSE).
+
+Third-party learning material bundled with the project (the PDFs in `rag/` and `data/pdfs/`) is not covered by the MIT License and remains subject to its own copyright.
